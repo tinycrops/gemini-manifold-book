@@ -109,7 +109,8 @@ h2 {
 }
 
 .instrument-grid,
-.viz-grid {
+.viz-grid,
+.evidence-grid {
   display: grid;
   gap: 22px;
   margin-top: 24px;
@@ -123,8 +124,13 @@ h2 {
   grid-template-columns: 1.15fr 0.85fr;
 }
 
+.evidence-grid {
+  grid-template-columns: 1.1fr 1fr;
+}
+
 .instrument-card,
-.viz-card {
+.viz-card,
+.evidence-card {
   padding: 28px;
 }
 
@@ -200,6 +206,51 @@ h2 {
 
 .idea-list li + li {
   margin-top: 10px;
+}
+
+.evidence-card {
+  background: rgba(255, 251, 244, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.observation-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.observation-item {
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--line);
+}
+
+.obs-label {
+  display: block;
+  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.observation-item strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 21px;
+  line-height: 1.25;
+}
+
+.obs-meta {
+  display: block;
+  margin-top: 8px;
+  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+  font-size: 13px;
+  color: var(--muted);
 }
 
 .section-head {
@@ -309,12 +360,14 @@ h2 {
   }
 
   .instrument-grid,
+  .evidence-grid,
   .viz-grid,
   .library {
     grid-template-columns: 1fr;
   }
 
   .metric-row,
+  .observation-list,
   .specimen-grid {
     grid-template-columns: 1fr;
   }

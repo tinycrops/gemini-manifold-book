@@ -9,6 +9,7 @@ async function main() {
 
   renderPairs(snapshot.pairs.slice(0, 8));
   renderPlot(snapshot.points);
+  renderObservations(snapshot.pairs);
 }
 
 function renderPairs(pairs) {
@@ -86,6 +87,37 @@ function renderPlot(points) {
     g.append(dot, label);
     svg.appendChild(g);
   }
+}
+
+function renderObservations(pairs) {
+  const farthest = [...pairs].sort((a, b) => b.l2 - a.l2)[0];
+  const photoPairs = pairs
+    .filter((pair) => pair.a === "photo" || pair.b === "photo")
+    .sort((a, b) => b.cosine - a.cosine);
+  const asciiBridge = pairs.find(
+    (pair) =>
+      (pair.a === "image" && pair.b === "image+text") ||
+      (pair.a === "image+text" && pair.b === "image"),
+  );
+
+  setObservation("obs-farthest-pair", farthest, false);
+  setObservation("obs-farthest-meta", farthest, true);
+  setObservation("obs-photo-nearest-pair", photoPairs[0], false);
+  setObservation("obs-photo-nearest-meta", photoPairs[0], true);
+  if (asciiBridge) {
+    setObservation("obs-ascii-bridge-pair", asciiBridge, false);
+    setObservation("obs-ascii-bridge-meta", asciiBridge, true);
+  }
+}
+
+function setObservation(id, pair, metricsOnly) {
+  const el = document.getElementById(id);
+  if (!el || !pair) return;
+  if (metricsOnly) {
+    el.textContent = `cos ${pair.cosine.toFixed(4)}, l2 ${pair.l2.toFixed(4)}`;
+    return;
+  }
+  el.textContent = `${pair.a} ↔ ${pair.b}`;
 }
 
 function line(x1, y1, x2, y2, className) {

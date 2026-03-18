@@ -12,14 +12,13 @@
       <p class="eyebrow">Introduction</p>
       <h1>The Gemini Manifold Book</h1>
       <p class="lede">
-        This book begins with a simple wager: ASCII art is not merely decoration wrapped around language. It is a representational
-        medium that can be measured across modalities, compared against photographs, and eventually used to teach models a new way
-        of communicating through structure rather than prose alone.
+        Before we can teach a model to communicate with ASCII art, we need to know what the model thinks ASCII art is. Does it read
+        an ASCII cathedral mainly as text, mainly as image, or as something that can bridge both? Gemini's multimodal embedding space
+        gives us a way to test that question directly.
       </p>
       <p class="lede">
-        Gemini's multimodal embedding space gives us the first believable instrument for that measurement. The work here is not just
-        to collect beautiful ASCII artifacts. It is to build visual and geometric aids strong enough that we can become fluent in a
-        space where the same cathedral can exist as text, image, fused <code>image+text</code>, photo, and hybrid bridges between them.
+        This book is where that measurement work is documented. Each chapter fixes one experiment in public, stores the embeddings,
+        and builds the visual aids needed to think clearly about what the geometry is actually showing instead of hand-waving around it.
       </p>
       <div class="hero-actions">
         <a class="chapter-link" href="./chapter-1/">Read Chapter 1</a>
@@ -29,12 +28,12 @@
 
     <section class="instrument-grid">
       <article class="instrument-card wide">
-        <p class="eyebrow">Why This Book Exists</p>
-        <h2>We need new visual instruments before we can think clearly.</h2>
+        <p class="eyebrow">The Measurement Problem</p>
+        <h2>One concept can have many semantic bodies.</h2>
         <p class="body-copy">
-          Raw cosine scores are not enough. Pairwise distances do not stay in the head. What we need instead are visual aids that turn
-          multimodal embedding space into something inspectable: clusters, bridges, gaps, tables, neighborhoods, and trajectories. The
-          book is where those aids get built in public.
+          A single ASCII artifact can be embedded as raw text, as a rasterized image, and as an interleaved multimodal object. A real
+          photograph of the same subject can be embedded too, along with hybrid objects that combine the photo with ASCII-derived forms.
+          Each of those is a separate point in the same vector space. The distances between those points are the observation.
         </p>
         <div class="metric-row">
           <div class="metric-tile">
@@ -57,8 +56,8 @@
       </article>
 
       <article class="instrument-card">
-        <p class="eyebrow">Source Forms</p>
-        <h2>Two images, one concept</h2>
+        <p class="eyebrow">First Specimen</p>
+        <h2>Two visible forms of the same cathedral</h2>
         <div class="specimen-grid">
           <figure class="specimen-figure">
             <img src="./assets/saint_basil_cathedral.png" alt="Rasterized ASCII art of Saint Basil's Cathedral">
@@ -72,13 +71,63 @@
       </article>
 
       <article class="instrument-card">
-        <p class="eyebrow">Research Frame</p>
-        <h2>What we are really measuring</h2>
+        <p class="eyebrow">Method</p>
+        <h2>How the current experiment is built</h2>
         <ul class="idea-list">
-          <li>Modality gap: how far ASCII text drifts from its own image body.</li>
-          <li>Representational coherence: whether text, image, and fused readings agree.</li>
-          <li>Bridge quality: whether hybrid objects move toward the concept photo or away from it.</li>
-          <li>Future target: programs, overlays, and trajectories as first-class geometric objects.</li>
+          <li>Embed the ASCII cathedral as <code>text</code>.</li>
+          <li>Rasterize the same ASCII and embed it as <code>image</code>.</li>
+          <li>Embed the same artifact as <code>image+text</code>.</li>
+          <li>Embed a reference JPG photo of Saint Basil's Cathedral as <code>photo</code>.</li>
+          <li>Embed two bridge objects: <code>photo+text</code> and <code>photo+ascii-image</code>.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="evidence-grid">
+      <article class="evidence-card wide">
+        <p class="eyebrow">Observed Result</p>
+        <h2>In this first case, visual structure bridges to the photo more strongly than raw ASCII text does.</h2>
+        <p class="body-copy">
+          The strongest evidence so far is not rhetorical. It is numerical. In the current six-object manifold, the raw ASCII
+          <code>text</code> object is the farthest point from the <code>photo</code> object, while the image-derived and hybrid objects
+          sit substantially closer.
+        </p>
+        <div class="observation-list">
+          <div class="observation-item">
+            <span class="obs-label">Farthest pair now</span>
+            <strong id="obs-farthest-pair">text ↔ photo</strong>
+            <span class="obs-meta" id="obs-farthest-meta">cos 0.3799, l2 1.1137</span>
+          </div>
+          <div class="observation-item">
+            <span class="obs-label">Photo closest to</span>
+            <strong id="obs-photo-nearest-pair">photo ↔ photo+ascii-image</strong>
+            <span class="obs-meta" id="obs-photo-nearest-meta">cos 0.8121, l2 0.6130</span>
+          </div>
+          <div class="observation-item">
+            <span class="obs-label">ASCII bridge</span>
+            <strong id="obs-ascii-bridge-pair">image ↔ image+text</strong>
+            <span class="obs-meta" id="obs-ascii-bridge-meta">cos 0.7925, l2 0.6442</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="evidence-card">
+        <p class="eyebrow">What We Can Say</p>
+        <h2>Claims the current evidence supports</h2>
+        <ul class="idea-list">
+          <li>ASCII does not collapse to one reading. The same artifact occupies several distinct positions.</li>
+          <li>The rasterized ASCII image is much closer to the photo-derived region than raw ASCII text is.</li>
+          <li>Hybrid objects create bridge points instead of trivially collapsing onto one modality.</li>
+        </ul>
+      </article>
+
+      <article class="evidence-card">
+        <p class="eyebrow">What We Cannot Yet Say</p>
+        <h2>Questions still open</h2>
+        <ul class="idea-list">
+          <li>We do not yet know whether this geometry generalizes beyond one cathedral.</li>
+          <li>We do not yet know whether triangle size is a reliable coherence metric across a corpus.</li>
+          <li>We do not yet know whether overlays, programs, or training trajectories will produce cleaner reward signals.</li>
         </ul>
       </article>
     </section>
@@ -90,7 +139,7 @@
             <p class="eyebrow">Visualization One</p>
             <h2>Six semantic bodies in one plane</h2>
           </div>
-          <p class="caption">A simplified 2D projection of the current Cathedral manifold.</p>
+          <p class="caption">A simplified 2D projection of the current Cathedral manifold. The visual is a thinking aid, not a proof by itself.</p>
         </div>
         <svg id="intro-plot" viewBox="0 0 760 420" preserveAspectRatio="xMidYMid meet"></svg>
       </article>
@@ -99,9 +148,9 @@
         <div class="section-head">
           <div>
             <p class="eyebrow">Visualization Two</p>
-            <h2>Strongest bridges</h2>
+            <h2>Measured pairwise distances</h2>
           </div>
-          <p class="caption">The pairs that currently sit closest together in the shared embedding space.</p>
+          <p class="caption">The table is here so the page earns its assertions. The geometry should be inspectable, not merely narrated.</p>
         </div>
         <div class="pair-table-wrap">
           <table class="pair-table">
@@ -120,12 +169,12 @@
 
     <section class="manifesto">
       <div class="manifesto-panel">
-        <p class="eyebrow">Opening Thesis</p>
-        <h2>ASCII is a body the model can learn to inhabit.</h2>
+        <p class="eyebrow">Why A Book</p>
+        <h2>The work is to build instruments before building doctrine.</h2>
         <p>
-          The endgame is not a gallery of charming terminal art. The endgame is an entity that can move through a multimodal manifold
-          and let that position determine how it appears, how it retrieves, and eventually how it generates. This introduction is the
-          first marker on that road: build the instruments, name the geometry, and make the space legible enough to think inside.
+          The temptation is to jump straight to big claims about teaching models to speak in ASCII. This book takes the slower path.
+          First build the corpus. Then store the embeddings. Then measure every relation we can think of. Then create enough visual aids
+          that the space becomes cognitively manageable. If the stronger theory is real, it should survive that discipline.
         </p>
       </div>
     </section>
