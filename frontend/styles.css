@@ -1,0 +1,321 @@
+:root {
+  --bg: #f3efe5;
+  --paper: rgba(255, 251, 245, 0.88);
+  --ink: #17120d;
+  --muted: #6a5c4f;
+  --line: rgba(23, 18, 13, 0.14);
+  --teal: #207a73;
+  --rust: #b85b31;
+  --gold: #b9912d;
+  --shadow: 0 20px 60px rgba(37, 21, 8, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Georgia", "Times New Roman", serif;
+  background:
+    radial-gradient(circle at top left, rgba(32, 122, 115, 0.15), transparent 26%),
+    radial-gradient(circle at 88% 14%, rgba(184, 91, 49, 0.15), transparent 24%),
+    linear-gradient(180deg, #f8f2e8 0%, var(--bg) 100%);
+}
+
+code {
+  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+  font-size: 0.92em;
+}
+
+.page {
+  width: min(1200px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 28px 0 64px;
+}
+
+.hero,
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.hero {
+  padding: 36px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+h1 {
+  font-size: clamp(38px, 5vw, 68px);
+  max-width: 14ch;
+}
+
+h2 {
+  font-size: clamp(28px, 3vw, 38px);
+}
+
+h3 {
+  font-size: 22px;
+}
+
+.lede,
+.panel p,
+.hint,
+th,
+td,
+.slot,
+.compare-metrics,
+.metric-label,
+.metric-value {
+  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+}
+
+.lede,
+.panel p {
+  font-size: 15px;
+  line-height: 1.72;
+  color: var(--muted);
+}
+
+.lede {
+  margin: 20px 0 0;
+  max-width: 72ch;
+}
+
+.hero-metrics {
+  margin-top: 28px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.metric {
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--line);
+}
+
+.metric-label {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.metric-value {
+  display: block;
+  margin-top: 8px;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.chapter-grid {
+  display: grid;
+  gap: 22px;
+  margin-top: 24px;
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.panel {
+  padding: 28px;
+}
+
+.artifact-layout {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr 280px;
+  align-items: start;
+  margin-top: 18px;
+}
+
+.ascii-frame {
+  margin: 0;
+  padding: 18px;
+  overflow: auto;
+  border-radius: 20px;
+  background: #12100d;
+  color: #e8dfd2;
+  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+  font-size: 10px;
+  line-height: 1;
+  min-height: 360px;
+}
+
+.artifact-image {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: #12100d;
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.manifold-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 320px;
+  gap: 20px;
+  align-items: start;
+}
+
+.plot-wrap {
+  min-height: 520px;
+  padding: 10px;
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 14% 12%, rgba(32, 122, 115, 0.12), transparent 22%),
+    radial-gradient(circle at 82% 78%, rgba(184, 91, 49, 0.12), transparent 24%),
+    #f7f2ea;
+  border: 1px solid var(--line);
+}
+
+#plot {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.compare-card {
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--line);
+}
+
+.slot,
+.compare-metrics {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(23, 18, 13, 0.04);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.slot + .slot,
+.slot + .compare-metrics {
+  margin-top: 12px;
+}
+
+#clear-selection {
+  margin-top: 14px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #f8f4ef;
+  padding: 10px 14px;
+  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+  cursor: pointer;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+th {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+}
+
+.coda {
+  margin-top: 24px;
+}
+
+.tooltip {
+  position: fixed;
+  display: none;
+  z-index: 10;
+  pointer-events: none;
+  max-width: min(820px, 92vw);
+  max-height: 80vh;
+  overflow: auto;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(14, 12, 10, 0.96);
+  color: #efe7db;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  padding: 14px 16px;
+}
+
+.tooltip pre {
+  margin: 10px 0 0;
+  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+  font-size: 10px;
+  line-height: 1;
+  white-space: pre;
+}
+
+.tooltip-meta {
+  margin-top: 5px;
+  color: #8fd5cd;
+  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+  font-size: 12px;
+}
+
+@media (max-width: 980px) {
+  .chapter-grid,
+  .manifold-layout,
+  .artifact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    width: min(100vw - 18px, 1200px);
+    padding-top: 12px;
+  }
+
+  .hero,
+  .panel {
+    padding: 20px;
+    border-radius: 22px;
+  }
+}
