@@ -1,5 +1,6 @@
 async function loadSnapshot() {
-  const res = await fetch("./assets/chapter1_snapshot.json", { cache: "no-store" });
+  const snapshotPath = document.body.dataset.snapshot || "./assets/chapter1_snapshot.json";
+  const res = await fetch(snapshotPath, { cache: "no-store" });
   if (!res.ok) throw new Error(`Failed to load snapshot: ${res.status}`);
   return res.json();
 }
@@ -87,6 +88,10 @@ function renderPairTable(snapshot) {
 function renderAscii(snapshot) {
   document.getElementById("ascii-art").textContent = snapshot.points.find((p) => p.kind === "text")?.art || "";
   document.getElementById("metric-count").textContent = String(snapshot.points.length);
+  const image = document.getElementById("artifact-image");
+  if (image) {
+    image.src = document.body.dataset.image || image.src;
+  }
 }
 
 function renderPlot(snapshot) {

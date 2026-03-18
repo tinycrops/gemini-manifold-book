@@ -3,110 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gemini Manifold: Chapter 1</title>
-  <link rel="stylesheet" href="./styles.css">
+  <title>The Book of ASCII Communication</title>
+  <link rel="stylesheet" href="./book.css">
 </head>
 <body>
   <main class="page">
     <section class="hero">
-      <p class="eyebrow">The Book of ASCII Communication</p>
-      <h1>Chapter 1: Saint Basil's Cathedral in Three Semantic Forms</h1>
+      <p class="eyebrow">A Living Research Book</p>
+      <h1>The Book of ASCII Communication</h1>
       <p class="lede">
-        This is the first stable snapshot of <code>gemini_manifold</code>: one ASCII cathedral, one rasterized image of that ASCII,
-        and one fused <code>image+text</code> object. It is a tiny experiment, but it already shows a path toward teaching language
-        models to communicate through ASCII art as structure, image, and multimodal meaning.
+        This site documents an unfolding project: learning how to teach LLMs to communicate with ASCII art as text, as image,
+        and as fused multimodal structure. Each chapter freezes one meaningful experimental moment so the ideas can accumulate
+        in public instead of disappearing into transient terminal sessions.
       </p>
-      <div class="hero-metrics">
-        <div class="metric">
-          <span class="metric-label">Objects</span>
-          <span class="metric-value" id="metric-count">3</span>
-        </div>
-        <div class="metric">
-          <span class="metric-label">Embedding Model</span>
-          <span class="metric-value">gemini-embedding-2-preview</span>
-        </div>
-        <div class="metric">
-          <span class="metric-label">Vector Size</span>
-          <span class="metric-value">3072</span>
-        </div>
-      </div>
     </section>
 
-    <section class="chapter-grid">
-      <article class="panel statement">
-        <h2>Why this matters</h2>
+    <section class="library">
+      <article class="chapter-card featured">
+        <p class="eyebrow">Chapter 1</p>
+        <h2>Saint Basil's Cathedral in Three Semantic Forms</h2>
         <p>
-          We are not treating ASCII as a novelty layer pasted on top of language. We are treating it as a genuine medium of thought.
-          The same cathedral can exist as pure text, as a rendered image, or as a fused multimodal artifact. The distances between
-          those forms tell us what the model thinks is preserved and what changes when expression crosses modality boundaries.
+          The first chapter captures one Cathedral as three separate objects: ASCII text, raster image, and <code>image+text</code>.
+          It is the first clean glimpse of how Gemini Embedding 2 relates those forms inside one shared manifold.
         </p>
+        <a class="chapter-link" href="./chapter-1/">Read Chapter 1</a>
       </article>
 
-      <article class="panel artifact">
-        <h2>The Source Artifact</h2>
-        <div class="artifact-layout">
-          <pre id="ascii-art" class="ascii-frame"></pre>
-          <img src="./assets/saint_basil_cathedral.png" alt="Rasterized Saint Basil's Cathedral ASCII art" class="artifact-image">
-        </div>
+      <article class="chapter-card">
+        <p class="eyebrow">Chapter 2</p>
+        <h2>The Next Experiment</h2>
+        <p>
+          The next chapter will extend beyond one artifact and start testing whether ASCII can become a repeatable mode of
+          communication rather than a single memorable example.
+        </p>
+        <a class="chapter-link secondary" href="./chapter-2/">Open Chapter 2</a>
       </article>
     </section>
 
-    <section class="panel manifold">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Snapshot</p>
-          <h2>Three points in one shared space</h2>
-        </div>
-        <p class="hint">Click any two points to compare them.</p>
+    <section class="manifesto">
+      <div class="manifesto-panel">
+        <p class="eyebrow">Thesis</p>
+        <h2>ASCII is not decoration here.</h2>
+        <p>
+          The project assumption is simple: ASCII can be a medium that holds structure, style, and intention in ways that are
+          legible to both people and models. The book exists to test that assumption chapter by chapter.
+        </p>
       </div>
-
-      <div class="manifold-layout">
-        <div class="plot-wrap">
-          <svg id="plot" viewBox="0 0 860 520" preserveAspectRatio="xMidYMid meet"></svg>
-        </div>
-
-        <aside class="compare-card">
-          <h3>Comparison</h3>
-          <div class="slot" id="slot-a">Select point A</div>
-          <div class="slot" id="slot-b">Select point B</div>
-          <div class="compare-metrics" id="compare-metrics">Similarity metrics appear here.</div>
-          <button id="clear-selection" type="button">Clear</button>
-        </aside>
-      </div>
-    </section>
-
-    <section class="panel findings">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Observed Distances</p>
-          <h2>What moved closer to what</h2>
-        </div>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Pair</th>
-              <th>Cosine</th>
-              <th>L2</th>
-              <th>Interpretation</th>
-            </tr>
-          </thead>
-          <tbody id="pair-table"></tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="panel coda">
-      <h2>Chapter note</h2>
-      <p>
-        The fused <code>image+text</code> object sits closer to the image than the pure text object does, but it still carries enough
-        of the ASCII structure to remain recognizably linked to both. That is exactly the kind of bridge we want if the long-term goal
-        is to teach models to speak in ASCII not just decoratively, but coherently.
-      </p>
     </section>
   </main>
-
-  <script src="./app.js"></script>
 </body>
 </html>
