@@ -321,6 +321,50 @@ h2 {
   margin-top: 24px;
 }
 
+.log-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.log-panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+.summary-table {
+  width: 100%;
+  margin-top: 18px;
+  border-collapse: collapse;
+  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+  font-size: 14px;
+}
+
+.summary-table th,
+.summary-table td {
+  padding: 12px 0;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.mono-block {
+  margin: 14px 0 0;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(20, 20, 20, 0.96);
+  color: #ececec;
+  font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 .chapter-card,
 .manifesto-panel {
   padding: 28px;
@@ -362,6 +406,7 @@ h2 {
   .instrument-grid,
   .evidence-grid,
   .viz-grid,
+  .log-grid,
   .library {
     grid-template-columns: 1fr;
   }
@@ -384,7 +429,8 @@ h2 {
   .chapter-card,
   .manifesto-panel,
   .instrument-card,
-  .viz-card {
+  .viz-card,
+  .log-panel {
     padding: 22px;
     border-radius: 22px;
   }

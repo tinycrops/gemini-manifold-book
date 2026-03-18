@@ -1,0 +1,51 @@
+{
+  "created_at": 1773820225.1164753,
+  "optimizer_model": "openai/gpt-5.4",
+  "generation_model": "openai/gpt-5.4",
+  "metric": "0.7 target trimodal alignment + 0.3 generated self-coherence",
+  "train_n": 2,
+  "dev_n": 2,
+  "train_subjects": [
+    "Monuments",
+    "Tombstones"
+  ],
+  "dev_subjects": [
+    "Glory Moon",
+    "lgbeard"
+  ],
+  "optimized_instruction": "Create a recognizable multi-line ASCII drawing of the requested subject using only standard keyboard characters. The output should be only the ASCII art itself, with no title, labels, explanation, markdown, or surrounding commentary. Make the depiction visually clear and stylistically coherent, choosing a simple but expressive composition that matches the subject category. Use spacing and line breaks carefully to preserve alignment, symmetry, and overall shape. If the subject is plural or category-like, it is acceptable to depict multiple related objects in one scene. Favor clean, readable ASCII art over overly complex detail.",
+  "baseline": {
+    "avg_score": 0.7960954129695892,
+    "rows": [
+      {
+        "subject": "Glory Moon",
+        "subcategory": "Temple",
+        "score": 0.7896807531515757,
+        "ascii_art": "_..._\n     .:::::::.\n   .:::::::::::.\n  :::::::::::::::\n :::::::::::::::::\n :::::::::::::::::\n `::::::::::::::::\n   `::::::::::::'\n      `':::'`\n    .-\"\"\"\"\"\"-.\n  .'  .--.    `.\n /   /    \\     \\\n|   |  /\\  |     |\n|   | (  ) |     |\n \\   \\ \\/ /     /\n  `.  `--'   .'\n    `-.___.-'\n       /  \\\n      / /\\ \\\n     /_/  \\_\\"
+      },
+      {
+        "subject": "lgbeard",
+        "subcategory": "Fences",
+        "score": 0.8025100727876028,
+        "ascii_art": "_____\n  /     \\\n |  o o  |\n |   ^   |\n |  \\_/  |\n | ///// |\n |///////|\n |///////|\n  \\_____/"
+      }
+    ]
+  },
+  "optimized": {
+    "avg_score": 0.8084628964463869,
+    "rows": [
+      {
+        "subject": "Glory Moon",
+        "subcategory": "Temple",
+        "score": 0.8109398782253265,
+        "ascii_art": ".     *      .\n      *        .     .     *\n            _..._\n         .-'     '-.\n       .'  .-\"\"\"-.  '.\n      /   /  _ _  \\   \\\n     ;   |  (o o)  |   ;\n     |   |   \\_/   |   |\n     ;    \\  ---  /    ;\n      \\     '-.-'     /\n       '.    /|\\    .'\n         '-./ | \\.-'\n        .---\\ | /---.   *\n      .'     \\|/     '.\n     /   *     *       \\\n    ;        .     .    ;\n    |   .   GLORY   *   |\n    ;     *   MOON     .;\n     \\   .      *      /\n      '.     .     * .'\n        '-._   *  _.-'\n             '---'"
+      },
+      {
+        "subject": "lgbeard",
+        "subcategory": "Fences",
+        "score": 0.8059859146674473,
+        "ascii_art": "_________\n  /         \\\n |  .--.--.  |\n | (  o o  ) |\n |  |  ^  |  |\n |  | '-' |  |\n |   \\___/   |\n |   /////   |\n |  ///////  |\n | ///////// |\n |///////////|\n  \\_________/\n     || ||\n     || ||"
+      }
+    ]
+  }
+}
