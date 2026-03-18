@@ -1,0 +1,142 @@
+{
+  "title": "Saint Basil's Cathedral",
+  "embedding_model": "gemini-embedding-2-preview",
+  "vector_size": 3072,
+  "object_count": 6,
+  "points": [
+    {
+      "kind": "text",
+      "source": "apehex",
+      "mime_type": "text/plain",
+      "x": 0.0,
+      "y": 0.130253
+    },
+    {
+      "kind": "image",
+      "source": "apehex",
+      "mime_type": "image/png",
+      "x": 0.671756,
+      "y": 1.0
+    },
+    {
+      "kind": "image+text",
+      "source": "apehex",
+      "mime_type": "image/png",
+      "x": 0.376428,
+      "y": 0.828078
+    },
+    {
+      "kind": "photo",
+      "source": "tripsavvy",
+      "mime_type": "image/jpeg",
+      "x": 1.0,
+      "y": 0.0
+    },
+    {
+      "kind": "photo+text",
+      "source": "tripsavvy",
+      "mime_type": "image/jpeg",
+      "x": 0.51177,
+      "y": 0.346628
+    },
+    {
+      "kind": "photo+ascii-image",
+      "source": "tripsavvy",
+      "mime_type": "image/jpeg",
+      "x": 0.741341,
+      "y": 0.561744
+    }
+  ],
+  "pairs": [
+    {
+      "a": "photo+text",
+      "b": "photo+ascii-image",
+      "cosine": 0.8687,
+      "l2": 0.5125
+    },
+    {
+      "a": "image",
+      "b": "photo+ascii-image",
+      "cosine": 0.8436,
+      "l2": 0.5593
+    },
+    {
+      "a": "image+text",
+      "b": "photo+text",
+      "cosine": 0.8322,
+      "l2": 0.5793
+    },
+    {
+      "a": "image+text",
+      "b": "photo+ascii-image",
+      "cosine": 0.8212,
+      "l2": 0.5979
+    },
+    {
+      "a": "photo",
+      "b": "photo+ascii-image",
+      "cosine": 0.8121,
+      "l2": 0.613
+    },
+    {
+      "a": "image",
+      "b": "image+text",
+      "cosine": 0.7925,
+      "l2": 0.6442
+    },
+    {
+      "a": "image",
+      "b": "photo+text",
+      "cosine": 0.7288,
+      "l2": 0.7365
+    },
+    {
+      "a": "text",
+      "b": "image+text",
+      "cosine": 0.712,
+      "l2": 0.759
+    },
+    {
+      "a": "photo",
+      "b": "photo+text",
+      "cosine": 0.7037,
+      "l2": 0.7698
+    },
+    {
+      "a": "text",
+      "b": "photo+text",
+      "cosine": 0.6927,
+      "l2": 0.784
+    },
+    {
+      "a": "image",
+      "b": "photo",
+      "cosine": 0.6718,
+      "l2": 0.8102
+    },
+    {
+      "a": "text",
+      "b": "photo+ascii-image",
+      "cosine": 0.5702,
+      "l2": 0.9272
+    },
+    {
+      "a": "image+text",
+      "b": "photo",
+      "cosine": 0.5681,
+      "l2": 0.9294
+    },
+    {
+      "a": "text",
+      "b": "image",
+      "cosine": 0.5438,
+      "l2": 0.9552
+    },
+    {
+      "a": "text",
+      "b": "photo",
+      "cosine": 0.3799,
+      "l2": 1.1137
+    }
+  ]
+}

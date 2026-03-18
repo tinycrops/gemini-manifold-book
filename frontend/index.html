@@ -3,19 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Book of ASCII Communication</title>
+  <title>The Gemini Manifold Book</title>
   <link rel="stylesheet" href="./book.css">
 </head>
-<body>
+<body data-intro="./assets/intro_snapshot.json">
   <main class="page">
-    <section class="hero">
-      <p class="eyebrow">A Living Research Book</p>
-      <h1>The Book of ASCII Communication</h1>
+    <section class="hero hero-intro">
+      <p class="eyebrow">Introduction</p>
+      <h1>The Gemini Manifold Book</h1>
       <p class="lede">
-        This site documents an unfolding project: learning how to teach LLMs to communicate with ASCII art as text, as image,
-        and as fused multimodal structure. Each chapter freezes one meaningful experimental moment so the ideas can accumulate
-        in public instead of disappearing into transient terminal sessions.
+        This book begins with a simple wager: ASCII art is not merely decoration wrapped around language. It is a representational
+        medium that can be measured across modalities, compared against photographs, and eventually used to teach models a new way
+        of communicating through structure rather than prose alone.
       </p>
+      <p class="lede">
+        Gemini's multimodal embedding space gives us the first believable instrument for that measurement. The work here is not just
+        to collect beautiful ASCII artifacts. It is to build visual and geometric aids strong enough that we can become fluent in a
+        space where the same cathedral can exist as text, image, fused <code>image+text</code>, photo, and hybrid bridges between them.
+      </p>
+      <div class="hero-actions">
+        <a class="chapter-link" href="./chapter-1/">Read Chapter 1</a>
+        <a class="chapter-link secondary" href="./chapter-2/">Open Chapter 2</a>
+      </div>
+    </section>
+
+    <section class="instrument-grid">
+      <article class="instrument-card wide">
+        <p class="eyebrow">Why This Book Exists</p>
+        <h2>We need new visual instruments before we can think clearly.</h2>
+        <p class="body-copy">
+          Raw cosine scores are not enough. Pairwise distances do not stay in the head. What we need instead are visual aids that turn
+          multimodal embedding space into something inspectable: clusters, bridges, gaps, tables, neighborhoods, and trajectories. The
+          book is where those aids get built in public.
+        </p>
+        <div class="metric-row">
+          <div class="metric-tile">
+            <span class="metric-label">Current Specimen</span>
+            <span class="metric-value">Saint Basil's Cathedral</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-label">Embedding Model</span>
+            <span class="metric-value" id="metric-model">gemini-embedding-2-preview</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-label">Objects</span>
+            <span class="metric-value" id="metric-objects">6</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-label">Vector Size</span>
+            <span class="metric-value" id="metric-dims">3072</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="instrument-card">
+        <p class="eyebrow">Source Forms</p>
+        <h2>Two images, one concept</h2>
+        <div class="specimen-grid">
+          <figure class="specimen-figure">
+            <img src="./assets/saint_basil_cathedral.png" alt="Rasterized ASCII art of Saint Basil's Cathedral">
+            <figcaption>Rasterized ASCII image</figcaption>
+          </figure>
+          <figure class="specimen-figure">
+            <img src="./assets/saint_basil_cathedral_reference.jpg" alt="Reference photograph of Saint Basil's Cathedral">
+            <figcaption>Reference photograph</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="instrument-card">
+        <p class="eyebrow">Research Frame</p>
+        <h2>What we are really measuring</h2>
+        <ul class="idea-list">
+          <li>Modality gap: how far ASCII text drifts from its own image body.</li>
+          <li>Representational coherence: whether text, image, and fused readings agree.</li>
+          <li>Bridge quality: whether hybrid objects move toward the concept photo or away from it.</li>
+          <li>Future target: programs, overlays, and trajectories as first-class geometric objects.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="viz-grid">
+      <article class="viz-card manifold-card">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Visualization One</p>
+            <h2>Six semantic bodies in one plane</h2>
+          </div>
+          <p class="caption">A simplified 2D projection of the current Cathedral manifold.</p>
+        </div>
+        <svg id="intro-plot" viewBox="0 0 760 420" preserveAspectRatio="xMidYMid meet"></svg>
+      </article>
+
+      <article class="viz-card">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Visualization Two</p>
+            <h2>Strongest bridges</h2>
+          </div>
+          <p class="caption">The pairs that currently sit closest together in the shared embedding space.</p>
+        </div>
+        <div class="pair-table-wrap">
+          <table class="pair-table">
+            <thead>
+              <tr>
+                <th>Pair</th>
+                <th>Cosine</th>
+                <th>L2</th>
+              </tr>
+            </thead>
+            <tbody id="pair-table-body"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <section class="manifesto">
+      <div class="manifesto-panel">
+        <p class="eyebrow">Opening Thesis</p>
+        <h2>ASCII is a body the model can learn to inhabit.</h2>
+        <p>
+          The endgame is not a gallery of charming terminal art. The endgame is an entity that can move through a multimodal manifold
+          and let that position determine how it appears, how it retrieves, and eventually how it generates. This introduction is the
+          first marker on that road: build the instruments, name the geometry, and make the space legible enough to think inside.
+        </p>
+      </div>
     </section>
 
     <section class="library">
@@ -23,8 +135,8 @@
         <p class="eyebrow">Chapter 1</p>
         <h2>Saint Basil's Cathedral in Three Semantic Forms</h2>
         <p>
-          The first chapter captures one Cathedral as three separate objects: ASCII text, raster image, and <code>image+text</code>.
-          It is the first clean glimpse of how Gemini Embedding 2 relates those forms inside one shared manifold.
+          The first chapter freezes the original three-object moment: ASCII text, raster image, and <code>image+text</code>. It is the
+          first clean proof that one artifact can hold more than one body in the manifold.
         </p>
         <a class="chapter-link" href="./chapter-1/">Read Chapter 1</a>
       </article>
@@ -33,23 +145,14 @@
         <p class="eyebrow">Chapter 2</p>
         <h2>The Next Experiment</h2>
         <p>
-          The next chapter will extend beyond one artifact and start testing whether ASCII can become a repeatable mode of
-          communication rather than a single memorable example.
+          The placeholder now points toward the next expansion: more objects, overlays, and a better map of what semantic coherence
+          really looks like when ASCII starts competing with photographs.
         </p>
         <a class="chapter-link secondary" href="./chapter-2/">Open Chapter 2</a>
       </article>
     </section>
-
-    <section class="manifesto">
-      <div class="manifesto-panel">
-        <p class="eyebrow">Thesis</p>
-        <h2>ASCII is not decoration here.</h2>
-        <p>
-          The project assumption is simple: ASCII can be a medium that holds structure, style, and intention in ways that are
-          legible to both people and models. The book exists to test that assumption chapter by chapter.
-        </p>
-      </div>
-    </section>
   </main>
+
+  <script src="./intro.js"></script>
 </body>
 </html>
